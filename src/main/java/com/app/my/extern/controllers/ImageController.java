@@ -1,7 +1,7 @@
 package com.app.my.extern.controllers;
 
 import com.app.my.domain.models.Image;
-import com.app.my.domain.repositories.ImageRespository;
+import com.app.my.domain.repositories.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -15,11 +15,11 @@ import java.io.ByteArrayInputStream;
 @RestController
 @RequiredArgsConstructor
 public class ImageController {
-    private final ImageRespository imageRespository;
+    private final ImageRepository imageRepository;
 
     @GetMapping("/images/{id}")
     private ResponseEntity<?> getImageById(@PathVariable Long id){
-        Image image = imageRespository.findById(id).orElse(null);
+        Image image = imageRepository.findById(id).orElse(null);
         return ResponseEntity.ok()
                 .header("fileName", image.getOriginalFilename())
                 .contentType(MediaType.valueOf(image.getContentType()))
