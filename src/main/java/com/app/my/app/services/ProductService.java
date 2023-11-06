@@ -15,8 +15,6 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class ProductService {
-
-
     private final ProductRepository productRepository;
 
     //Метод возвращает весь товар, который имеется
@@ -42,6 +40,7 @@ public class ProductService {
         if (file3.getSize() != 0) {
             image3 = toImageEntity(file3);
             product.addImageToProduct(image3);
+
         }
         log.info("Saving new Product. Title: {}; Price: {}", product.getTitle(), product.getPrice());
         Product productFromDb = productRepository.save(product);
