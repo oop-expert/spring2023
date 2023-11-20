@@ -45,5 +45,13 @@
             <input type="submit" value="Добавить товар">
         </form>
     </#if>
+
+    <#list comments as comment>
+        <div>
+            <p><b>${comment.text}</b>| ${comment.user.name}</p>
+        </div>
+    </#list>
+    <a href="/comment/add">Добавить комментарий</a>
+
 </body>
 </html>
