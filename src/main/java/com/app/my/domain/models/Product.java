@@ -33,6 +33,10 @@ public class  Product {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn
     private User user;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    private List<Category> categories = new ArrayList<>();
+
     private LocalDateTime dateOfCreated;
 
     @PrePersist

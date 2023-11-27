@@ -33,6 +33,16 @@
     <#else>
         <h3>Пользователей нет</h3>
     </#list>
+
+    <a href="/categories/create">Добавить категорию</a>
+
+
 </table>
+    <h1>Категории товаров</h1>
+        <#list categories as category>
+            <div>
+                <p><b>${category.name}</b>
+            </div>
+        </#list>
 </body>
 </html>

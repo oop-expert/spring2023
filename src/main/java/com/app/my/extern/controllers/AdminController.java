@@ -1,9 +1,12 @@
 package com.app.my.extern.controllers;
 
 import com.app.my.app.services.UserService;
+import com.app.my.domain.models.Category;
 import com.app.my.domain.models.User;
 import com.app.my.domain.models.enums.Role;
+import com.app.my.domain.repositories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +23,13 @@ import java.util.Map;
 public class AdminController {
     private final UserService userService;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @GetMapping("/admin")
     public String admin(Model model) {
+        Iterable<Category> categories = categoryRepository.findAll();
+        model.addAttribute("categories", categories);
         model.addAttribute("users", userService.list());
         return "admin";
     }
