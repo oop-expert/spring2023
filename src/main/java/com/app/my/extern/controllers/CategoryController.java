@@ -24,6 +24,9 @@ import java.security.Principal;
 public class CategoryController {
     private final CategoryService categoryService;
 
+    @Autowired
+    private final CategoryRepository categoryRepository;
+
 
     @GetMapping("/categories/create")
     public String createCategory() {
@@ -38,8 +41,8 @@ public class CategoryController {
     }
 
     @PostMapping("/categories/delete/{id}")
-    public String deleteCategory(@PathVariable Long id) throws IOException{
-        categoryService.deleteCategory(id);
-        return "redirect:/categories";
+    public String deleteCategory(@PathVariable("id") Long id) throws IOException {
+        categoryRepository.deleteById(id);
+        return "redirect:/admin";
     }
 }

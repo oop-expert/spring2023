@@ -10,6 +10,7 @@
 <table border="1">
     <tr>
         <th>Email</th>
+        <th>Имя</th>
         <th>Активность</th>
         <th>Роли</th>
         <th>Бан</th>
@@ -19,6 +20,7 @@
     <#list users as user>
         <tr>
             <th>${user.email}</th>
+            <th>${user.name}</th>
             <th><#if user.active>true<#else>false</#if></th>
             <th><#list user.roles as role>${role}</#list></th>
             <th>
@@ -41,7 +43,7 @@
     <h1>Категории товаров</h1>
         <#list categories as category>
             <div>
-                <p><b>${category.name}</b>
+                <p><b>${category.name} | <a href="/categories/delete/${category.id}">Удалить категорию</a></b>
             </div>
         </#list>
 </body>

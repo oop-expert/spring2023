@@ -43,7 +43,7 @@ public class CategoryService {
      */
     public void deleteCategory(Long id) throws IOException{
         log.info("Deleted category");
-        categoryRepository.deleteById(id);
+        categoryRepository.deleteCategoryById(id);
     }
 
     /**

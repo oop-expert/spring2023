@@ -62,4 +62,12 @@ public class UserService {
         }
         userRepository.save(user);
     }
+
+    public void changeUserName(User user, String name) {
+        String currentUserName = user.getUsername();
+        currentUserName = name;
+        user.setName(currentUserName);
+        log.info("Changed " + user.getUsername() + "'s name");
+        userRepository.save(user);
+    }
 }
