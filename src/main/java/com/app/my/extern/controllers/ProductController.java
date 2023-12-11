@@ -5,8 +5,12 @@ import com.app.my.app.services.ProductService;
 import com.app.my.domain.models.Comment;
 import com.app.my.domain.models.Product;
 import com.app.my.domain.repositories.CommentRepository;
+import com.app.my.domain.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +31,9 @@ public class ProductController {
 
     @Autowired
     private CommentRepository commentRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     //Получаем страницу с товарами и формой для создания товара
     @GetMapping("/")

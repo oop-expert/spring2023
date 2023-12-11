@@ -25,6 +25,12 @@ public class CommentService {
         log.info("Saving new comment");
         commentRepository.save(comment);
     }
+
+    // Метод удаляет комментарий
+    public void banComment(Long id) throws IOException{
+        commentRepository.deleteById(id);
+    }
+
     //Получаем авторизованного пользователя
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();

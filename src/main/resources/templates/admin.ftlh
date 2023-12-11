@@ -46,5 +46,12 @@
                 <p><b>${category.name} | <a href="/categories/delete/${category.id}">Удалить категорию</a></b>
             </div>
         </#list>
+
+    <h1>Комментарии</h1>
+        <#list commentaries as commentary>
+            <div>
+                <p><b>${commentary.text} | <a href="/admin/comment/ban/{id}">Удалить комментарий</a></b>
+            </div>
+        </#list>
 </body>
 </html>
