@@ -43,14 +43,25 @@
     <h1>Категории товаров</h1>
         <#list categories as category>
             <div>
-                <p><b>${category.name} | <a href="/categories/delete/${category.id}">Удалить категорию</a></b>
+                <p><b>
+                <form action="/categories/delete/${category.id}" method="post">
+                    ${category.name} |
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Удалить категорию">
+                </form></b>
             </div>
         </#list>
 
     <h1>Комментарии</h1>
         <#list commentaries as commentary>
             <div>
-                <p><b>${commentary.text} | <a href="/admin/comment/ban/{id}">Удалить комментарий</a></b>
+                <b>
+                <form action="/admin/comment/ban/${commentary.id}" method="post">
+                    ${commentary.text} |
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <input type="submit" value="Удалить комментарий">
+                </form>
+                </b>
             </div>
         </#list>
 </body>

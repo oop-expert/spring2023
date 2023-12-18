@@ -34,10 +34,22 @@ public class  Product {
     @JoinColumn
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "productcategory")
     private List<Category> categories = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private List<Comment> comments = new ArrayList<>();
+
     private LocalDateTime dateOfCreated;
+
+    Product(long id, String title, String description, int price) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+    }
 
     @PrePersist
     private void init() {

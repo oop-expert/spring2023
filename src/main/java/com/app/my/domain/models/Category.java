@@ -28,8 +28,8 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    private Product product;
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    private List<Product> products = new ArrayList<>();
 
     public Category(String name) {
         this.name = name;

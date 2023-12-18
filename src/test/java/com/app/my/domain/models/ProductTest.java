@@ -1,4 +1,4 @@
-package com.app.my;
+package com.app.my.domain.models;
 
 import com.app.my.domain.models.Product;
 import org.junit.jupiter.api.Assertions;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModulesTests {
+public class ProductTest {
 
     @Test
     void testGetProductById(){
