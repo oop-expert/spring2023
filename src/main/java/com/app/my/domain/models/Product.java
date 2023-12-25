@@ -60,4 +60,12 @@ public class  Product {
         image.setProduct(this);
         images.add(image);
     }
+
+
+    public Product(Long id, String title, String description, int price){
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+    }
 }

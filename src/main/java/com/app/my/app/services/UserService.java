@@ -22,7 +22,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public boolean createUser(User user) {
-            String email = user.getEmail();
+        String email = user.getEmail();
         if(userRepository.findByEmail(email) != null) return false;
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
