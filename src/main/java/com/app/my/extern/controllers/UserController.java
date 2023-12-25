@@ -2,6 +2,7 @@ package com.app.my.extern.controllers;
 
 import com.app.my.app.services.UserService;
 import com.app.my.domain.models.User;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String createUser(User user, Model model){
+    public String createUser(@Valid User user, Model model){
         if (!userService.createUser(user)) {
             model.addAttribute("errorMessage", "Пользователь с email: " + user.getEmail() + " уже существует");
             return "registration";
